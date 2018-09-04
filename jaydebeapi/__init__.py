@@ -379,6 +379,7 @@ def connect(jclassname, url, driver_args=None, jars=None, libs=None):
     else:
         libs = []
     jconn = _jdbc_connect(jclassname, url, driver_args, jars, libs)
+    jconn.setAutoCommit(False)
     return Connection(jconn, _converters)
 
 # DB-API 2.0 Connection Object
